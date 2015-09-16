@@ -18,4 +18,4 @@ for line in text_file:
     element = line.strip('\n')
     element_list.append(element)
     
-print element_list[1].strip(')' + '(').split(',')
+print float(element_list[1].strip(')' + '(').split(',')[1])
