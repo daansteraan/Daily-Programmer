@@ -1,23 +1,13 @@
-<<<<<<< HEAD
 import math
 import time
 
 start = time.time()
-=======
-
-import math
->>>>>>> origin/master
-
 text_file = open('number232.txt').readlines()
 
 element_list = []
 element_dict = {}
 
-<<<<<<< HEAD
 result = float('inf')
-=======
-result = 100000000000000000
->>>>>>> origin/master
 
 for line in text_file:
    
@@ -47,7 +37,6 @@ for i in element_dict.values():
             if test < result:
                 result = test
                 winner = [(x1,y1),(x2,y2)]
-<<<<<<< HEAD
 
 end = time.time()
 runtime = end - start
@@ -55,10 +44,4 @@ runtime = end - start
 print result
 print winner
 print 'RUNTIME: %.5f' % runtime                
-=======
                 
-print result
-print winner
-                
-               
->>>>>>> origin/master
