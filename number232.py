@@ -1,21 +1,47 @@
-'''
-Author: Danie Strijdom 
-Date: 160915
-'''
+import math
+import time
 
-# iteratively compare all points, 
-# find y-distance and x-distance,
-# create a dictionary taht stores the result
-# return dict key that has the smallest value
+start = time.time()
 
-# store best value is a result var
-# update variable value if smaller result is found
+text_file = open('number232.txt').readlines()
 
-text_file = open('number232.txt')
 element_list = []
+element_dict = {}
+
+result = float('inf')
 
 for line in text_file:
-    element = line.strip('\n')
+   
+    element = line.strip('\n'+'('+')').split(',')
     element_list.append(element)
+      
+for i in range(int(element_list[0][0])):
+    element_dict[i] = element_list[i+1]
+        
+for i in element_dict.values():
+    i[0] = float(i[0])
+    i[1] = float(i[1])
     
-print float(element_list[1].strip(')' + '(').split(',')[1])
+def dist(x1,y1,x2,y2):   
+    return math.sqrt(((x2-x1)**2)+((y2-y1)**2))
+    
+for i in element_dict.values():
+    for j in element_dict.values():
+        if i != j:
+            x1 = i[0]        
+            y1 = i[1]
+            x2 = j[0]
+            y2 = j[1]
+            
+            test = dist(x1,y1,x2,y2)
+            
+            if test < result:
+                result = test
+                winner = [(x1,y1),(x2,y2)]
+
+end = time.time()
+runtime = end - start
+                
+print result
+print winner
+print 'RUNTIME: %.5f' % runtime                
